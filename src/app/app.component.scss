@@ -1,0 +1,30 @@
+#parent{
+    overflow:hidden;
+    //background:yellow;
+    position:center;
+    display:table;
+}
+.left{
+    display:table-cell;
+}
+.right{
+    background:rgb(221, 220, 220);
+    width:500px;
+    height:100%;
+    display:table-cell;
+}
+.chatform{
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 30px;
+    align-self: left;
+  }
+
+h3 {
+    text-align: center;
+}
+
+.text{
+    padding-left: 15px;
+    padding-right: 5px; 
+}

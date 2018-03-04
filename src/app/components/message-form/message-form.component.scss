@@ -3,15 +3,19 @@
     width: 100%;
   
     .chatinput{
-      width: 80%;
+      width: 85%;
       float: left;
       border-radius: 0;
     }
   
     .sendbtn{
-      width: 20%;
+      width: 15%;
       float: left;
       border-radius: 0;
       text-transform: uppercase;
     }
+  }
+  .button-black {
+    background-color: blue;
+    border-color: blue;
   }
