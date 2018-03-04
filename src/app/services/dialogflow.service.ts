@@ -7,7 +7,7 @@ import { environment } from '@env/environment';
 @Injectable()
 export class DialogflowService {
 
-  private baseURL: string = "https://api.dialogflow.com/v1/query?v=20150910";
+  private baseURL: string = "https://api.dialogflow.com/v1/query?v=20170712";
   private token: string = environment.token;
 
   constructor(private http: Http){}
@@ -16,7 +16,7 @@ export class DialogflowService {
     let data = {
       query : query,
       lang: 'en',
-      sessionId: '12345'
+      sessionId: '12345678'
     }
     return this.http
       .post(`${this.baseURL}`, data, {headers: this.getHeaders()})
