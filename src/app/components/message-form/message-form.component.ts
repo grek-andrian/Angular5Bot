@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Validators } from '@angular/forms';
 import { Message } from '@app/models';
 import { DialogflowService } from '@app/services';
 
@@ -21,17 +22,21 @@ export class MessageFormComponent implements OnInit {
   }
 
   public sendMessage(): void {
-    this.message.timestamp = new Date();
-    this.message.author = "user";
-    this.messages.push(this.message);
+    if (this.message.content == "") {
+      return null;
+    } else {
+      this.message.timestamp = new Date();
+      this.message.author = "user";
+      this.messages.push(this.message);
 
-    this.dialogFlowService.getResponse(this.message.content).subscribe(res => {
-      this.messages.push(
-        new Message(res.result.fulfillment.speech, 'assets/images/bot.png', 'bot', res.timestamp)
-      );
-    });
+      this.dialogFlowService.getResponse(this.message.content).subscribe(res => {
+        this.messages.push(
+          new Message(res.result.fulfillment.speech, 'assets/images/bot.png', 'bot', res.timestamp)
+        );
+      });
 
-    this.message = new Message('', 'assets/images/user.png', 'user');
+      this.message = new Message('', 'assets/images/user.png', 'user');
+    }
   }
 
 }
